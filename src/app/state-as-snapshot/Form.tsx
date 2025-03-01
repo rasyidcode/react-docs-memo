@@ -19,7 +19,7 @@ export default function Form() {
         setIsSent(true);
         sendMessage(message);
       }}
-      className="p-4 flex flex-col items-end gap-4
+      className="flex flex-col items-end gap-4
       max-w-max"
     >
       <textarea
