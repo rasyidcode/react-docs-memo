@@ -3,6 +3,7 @@ import Form from "./Form";
 import AddToCart from "./AddToCart";
 import CakeCounter from "./CakeCounter";
 import Wallet from "./Wallet";
+import Chat from "./Chat";
 
 export const metadata: Metadata = {
   title: "State as Snapshot",
@@ -81,6 +82,46 @@ export default function Page() {
         <li>
           The value was "fixed" when React "took the snapshot" of the UI by
           calling your component.
+        </li>
+        <li>
+          Testing with timer
+          <div className="p-4 border ml-4 mt-1">
+            <Chat />
+            <hr className="mt-2" />
+            <p>
+              <strong>
+                React keeps the state values "fixed" within one render's event
+                handlers.
+              </strong>{" "}
+              You don't need to worry whether the state has changed while the
+              code is running.
+            </p>
+          </div>
+        </li>
+        <li>
+          We use <strong>state updater function</strong> to read the latest
+          state before a re-render.
+        </li>
+      </ol>
+      <h1>Recap</h1>
+      <ol className="list-inside list-decimal">
+        <li>Setting state requests a new render.</li>
+        <li>React stores state outside of the component, as if on a shelf.</li>
+        <li>
+          When calling <code>useState</code>, React gives a snapshot of the
+          state for <i>that render</i>.
+        </li>
+        <li>
+          Variables and event handlers don't "survive" re-renders. Every render
+          has its own event handler.
+        </li>
+        <li>
+          You can mentally subtitude state in event handlers, similarly to how
+          you think about rendered JSX.{" "}
+        </li>
+        <li>
+          Event handlers create in the past have the state values from the
+          render in which they were created.
         </li>
       </ol>
     </div>
