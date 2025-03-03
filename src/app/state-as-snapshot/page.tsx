@@ -104,7 +104,7 @@ export default function Page() {
         </li>
       </ol>
       <h1>Recap</h1>
-      <ol className="list-inside list-decimal">
+      <ul className="list-inside list-disc ml-4">
         <li>Setting state requests a new render.</li>
         <li>React stores state outside of the component, as if on a shelf.</li>
         <li>
@@ -123,7 +123,7 @@ export default function Page() {
           Event handlers create in the past have the state values from the
           render in which they were created.
         </li>
-      </ol>
+      </ul>
     </div>
   );
 }
