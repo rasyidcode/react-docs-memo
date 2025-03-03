@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Form from "./Form";
 import AddToCart from "./AddToCart";
 import CakeCounter from "./CakeCounter";
+import Wallet from "./Wallet";
 
 export const metadata: Metadata = {
   title: "State as Snapshot",
@@ -46,7 +47,7 @@ export default function Page() {
           Cake counter
           <div className="p-4 border ml-4 mt-1">
             <CakeCounter />
-            <hr />
+            <hr className="mt-2" />
             <p className="mt-5 text-sm">
               In above example, even though we call{" "}
               <code>setCakeCount(cakeCount + 1)</code> three times in the event
@@ -54,6 +55,32 @@ export default function Page() {
               <code>cakeCount</code> state is still same since the first render.
             </p>
           </div>
+        </li>
+        <li>
+          State over time
+          <div className="p-4 border ml-4 mt-1">
+            <Wallet />
+            <hr className="mt-2" />
+            <p>
+              In this case alert will show <code>0</code> when clicking the
+              button, since the value still the same on the "snapshot". Even we
+              put timer, the value will still be the previous state.
+            </p>
+          </div>
+        </li>
+        <li>
+          The state stored in React may have changed by the time the alert runs,
+          but it was scheduled using a snapshot of the state at the time the
+          user interacted with it!
+        </li>
+        <li>
+          A state variable's value never changes within a render, even if its
+          event handler's code is asynchonous. The value is fixed inside that
+          event handler.
+        </li>
+        <li>
+          The value was "fixed" when React "took the snapshot" of the UI by
+          calling your component.
         </li>
       </ol>
     </div>
