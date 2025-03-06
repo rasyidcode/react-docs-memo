@@ -4,6 +4,7 @@ import AddToCart from "./AddToCart";
 import CakeCounter from "./CakeCounter";
 import Wallet from "./Wallet";
 import Chat from "./Chat";
+import TrafficLight from "./TrafficLight";
 
 export const metadata: Metadata = {
   title: "State as Snapshot",
@@ -103,7 +104,7 @@ export default function Page() {
           state before a re-render.
         </li>
       </ol>
-      <h1>Recap</h1>
+      <h1 className="text-2xl font-semibold mt-4">Recap</h1>
       <ul className="list-inside list-disc ml-4">
         <li>Setting state requests a new render.</li>
         <li>React stores state outside of the component, as if on a shelf.</li>
@@ -122,6 +123,15 @@ export default function Page() {
         <li>
           Event handlers create in the past have the state values from the
           render in which they were created.
+        </li>
+      </ul>
+      <h1 className="text-2xl font-semibold mt-4">Challenge</h1>
+      <ul className="list-inside list-disc ml-4">
+        <li>
+          Challenge #1
+          <div className="p-4 border ml-4 mt-1">
+            <TrafficLight />
+          </div>
         </li>
       </ul>
     </div>
