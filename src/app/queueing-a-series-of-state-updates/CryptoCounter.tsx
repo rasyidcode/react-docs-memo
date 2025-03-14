@@ -1,6 +1,5 @@
 "use client";
 
-import { TokenBTC } from "@web3icons/react";
 import { useState } from "react";
 
 export default function CryptoCounter() {
@@ -38,8 +37,10 @@ export default function CryptoCounter() {
           {isCounting ? "Counting..." : "Start counting"}
         </button>
       </div>
-      <p className="text-lg mt-4 flex items-center">
-        <TokenBTC size="24" /> {count}
+      <p className="text-lg mt-4 flex items-center gap-1">
+        <span className="bg-yellow-400 h-5 text-sm font-bold rounded-lg px-2">
+          $BTC
+        </span> {count}
       </p>
     </div>
   );

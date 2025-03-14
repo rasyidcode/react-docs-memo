@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { TokenIcon } from "@web3icons/react";
 
 type Coin = {
   id: string;
@@ -118,11 +117,9 @@ export default function Coins() {
               {coins.map((coin) => (
                 <div key={coin.id}>
                   <div className="flex items-center gap-2">
-                    <TokenIcon
-                      symbol={coin.id}
-                      variant="background"
-                      size="24"
-                    />{" "}
+                    <div className="h-5 bg-yellow-400 font-bold px-2 text-sm">
+                      {coin.id}
+                    </div>{" "}
                     <span className="text-sm">{coin.name}</span>
                   </div>
                 </div>
@@ -139,11 +136,9 @@ export default function Coins() {
               {memeCoins.map((memeCoin) => (
                 <div key={memeCoin.id}>
                   <div className="flex items-center gap-2">
-                    <TokenIcon
-                      symbol={memeCoin.id}
-                      variant="background"
-                      size="24"
-                    />{" "}
+                    <div className="h-5 bg-yellow-400 font-bold px-2 text-sm">
+                      {memeCoin.id}
+                    </div>{" "}
                     <span className="text-sm">{memeCoin.name}</span>
                   </div>
                 </div>

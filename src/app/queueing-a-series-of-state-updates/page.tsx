@@ -1,5 +1,8 @@
 import Coins from "./Coins";
 import CryptoCounter from "./CryptoCounter";
+import LikeButton from "./LikeButton";
+import ReactStateQueue from "./ReactStateQueue";
+import RequestTracker from "./RequestTracker";
 
 export default function Page() {
   return (
@@ -129,6 +132,75 @@ export default function Page() {
           <li>
             Don't try to set state from inside of them or run other side
             effects.
+          </li>
+          <li>
+            It's common to name the updater function argument by the first
+            letters of the corresponding state variable:
+            <div className="p-4 border ml-4 mt-1">
+              <code>
+                setEnabled(e ={">"} !e)
+                <br />
+                setLastName(ln ={">"} ln.reverse())
+                <br />
+                setFriendCount(fc ={">"} fc * 2)
+              </code>
+            </div>
+          </li>
+          <li>
+            Example: A Like Button Counter
+            <div className="p-4 border ml-4 mt-1">
+              <LikeButton />
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-semibold">Recap</h2>
+        <ul className="list-inside list-disc">
+          <li>
+            Setting state does not change the variable in the existing render,
+            but it requests a new render.
+          </li>
+          <li>
+            React processes state updates after event handlers have finished
+            running. This is called batching.
+          </li>
+          <li>
+            To update some state multiple times in one event, you can use{" "}
+            <code>setNumber(n ={">"} n + 1)</code> updater function.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-semibold">Challenges</h2>
+        <ol className="list-inside list-decimal">
+          <li>
+            Fix a request counter
+            <div className="p-4 border ml-4 mt-1">
+              <RequestTracker />
+              <hr className="mt-2" />
+              <p className="mt-2 text-sm">
+                Inside the <code>handleBuy</code> event handler, the values of{" "}
+                <code>pending</code> and <code>completed</code> to what they
+                were at the time of the click event. For the first render,{" "}
+                <code>pending</code> was <code>0</code>, so{" "}
+                <code>setPending(pending - 1)</code> becomes{" "}
+                <code>setPending(-1)</code>, which is wrong. Since we want to{" "}
+                <i>increment</i> or <i>decrement</i> the counters, rather than
+                set them to a concrete value determined during the click, we can
+                instead pass the updater functions.
+              </p>
+            </div>
+          </li>
+          <li>
+            Implement the state queue yourself
+            <div className="p-4 border ml-4 mt-1">
+              <ReactStateQueue />
+              <hr className="mt-2" />
+              <p className="mt-2 text-sm"></p>
+            </div>
           </li>
         </ol>
       </section>
